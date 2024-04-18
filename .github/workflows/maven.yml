@@ -32,4 +32,4 @@ jobs:
     - name: javadoc with Maven
       run: mvn -B javadoc:javadoc --file pom.xml
     - name: run tests
-      run: mvn test -Dtest="battleship.**"
+      run: mvn clean test
