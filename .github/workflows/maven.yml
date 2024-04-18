@@ -28,6 +28,9 @@ jobs:
         distribution: 'temurin'
         cache: maven
     - name: Build with Maven
-      run: a
+      run: mvn -B compile --file pom.xml
     - name: javadoc with Maven
       run: mvn -B javadoc:javadoc --file pom.xml
+    - name: run tests
+      run: javac -d target -cp target:junit-platform-console-standalone-1.7.2.jar src/test/java/battleship/*.java
+      run: java -jar junit-platform-console-standalone-1.7.2.jar --class-path target --select-package battleship
